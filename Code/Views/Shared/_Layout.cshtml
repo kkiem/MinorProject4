@@ -1,0 +1,45 @@
+﻿@inject MinorProject4.AppSettings Settings
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="@(Settings.DarkMode ? "dark" : "light")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - F1 Manager (MinorProject4)</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="@(Settings.DarkMode ? "bg-dark text-light" : "bg-light text-dark")">
+    <header>
+        <nav class="navbar navbar-expand-sm border-bottom box-shadow mb-3 @(Settings.DarkMode ? "navbar-dark bg-black" : "navbar-light bg-white")">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-danger" asp-controller="Home" asp-action="Index">F1 Manager</a>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">🏎️ Drivers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Principals">👔 Principals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Admin">🛠️ Admin (Teams)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Settings">⚙️ Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
